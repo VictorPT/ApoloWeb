@@ -4,13 +4,11 @@ import com.apolo.entity.User;
 import com.apolo.service.IUserService;
 import com.apolo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/apolo")
 public class ApoloController {
@@ -24,7 +22,7 @@ public class ApoloController {
     }
 
     @PostMapping(value = "/addUser")
-    public User addUser(User user){
+    public User addUser(@RequestBody User user){
         return userServiceImpl.addUser(user);
     }
 

@@ -1,20 +1,19 @@
 package com.apolo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
 public class User {
     @Id
-    private String userId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
     private String userName;
     private String userEmail;
     private String userAddress;
     private String userPhone;
 
-    public User(String userId, String userName, String userEmail, String userAddress, String userPhone) {
+    public User(Long userId, String userName, String userEmail, String userAddress, String userPhone) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -25,11 +24,11 @@ public class User {
     User() {
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 

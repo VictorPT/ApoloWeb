@@ -10,8 +10,12 @@ import java.util.List;
 @Service
 public class UserServiceImpl {
 
-    @Autowired
     private UserRepository repository;
+
+    @Autowired
+    public UserServiceImpl(UserRepository userRepository) {
+        this.repository = userRepository;
+    }
 
     public List<User> findAll() {
         return (List<User>) repository.findAll();
