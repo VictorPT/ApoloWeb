@@ -22,8 +22,11 @@ public class UserServiceImpl {
     }
 
     public User addUser(User user){
-        repository.save(user);
-        return user;
+        return repository.save(user);
+    }
+
+    public void deleteById(long id){
+        repository.deleteById(id);
     }
 
 }

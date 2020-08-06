@@ -1,6 +1,9 @@
 package com.apolo.entity;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
@@ -8,7 +11,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
+    @NotBlank(message="El nombre es obligatorio")
     private String userName;
+    @NotBlank(message="El e-mail es obligatorio")
     private String userEmail;
     private String userAddress;
     private String userPhone;

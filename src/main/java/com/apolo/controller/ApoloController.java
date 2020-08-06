@@ -6,6 +6,7 @@ import com.apolo.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -22,8 +23,13 @@ public class ApoloController {
     }
 
     @PostMapping(value = "/addUser")
-    public User addUser(@RequestBody User user){
+    public User addUser(@Valid @RequestBody User user){
         return userServiceImpl.addUser(user);
+    }
+
+    @DeleteMapping(value= "/deleteUser/{id}")
+    public void deleteUser(@PathVariable Long id){
+        userServiceImpl.deleteById(id);
     }
 
 }
